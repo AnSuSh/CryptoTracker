@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,12 +36,15 @@ fun CoinListScreen(
         }
     } else {
         LazyColumn(
+            modifier = modifier
+                .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(state.coins) { item: CoinUI ->
                 CoinListItem(item = item, onClick = {
                     onClickAction(CoinListAction.OnCoinClick(item))
                 }, modifier = Modifier.fillMaxWidth())
+                HorizontalDivider()
             }
         }
     }

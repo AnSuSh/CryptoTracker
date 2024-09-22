@@ -2,6 +2,7 @@ package com.plcoding.cryptotracker.crypto.presentation.coin_list.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -41,7 +42,8 @@ fun PercentChange(
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(100f))
-            .background(backgroundColor),
+            .background(backgroundColor)
+            .padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(

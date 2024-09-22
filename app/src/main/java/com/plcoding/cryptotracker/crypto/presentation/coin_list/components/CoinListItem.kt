@@ -77,9 +77,9 @@ fun CoinListItem(
         ) {
             Text(
                 text = "$ ${item.priceUsD.formatted}",
-                fontSize = 20.sp,
-                color = contentColor,
-                fontWeight = FontWeight.Bold
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = contentColor
             )
             Spacer(modifier = Modifier.height(8.dp))
             PercentChange(data = item.changePercentageIn24H)
