@@ -68,7 +68,7 @@ class CoinListViewModel(
 
                     _state.update {
                         it.copy(
-                            selectedCoin = it.selectedCoin?.copy(
+                            selectedCoinUI = it.selectedCoinUI?.copy(
                                 coinPriceHistory = dataPoints
                             )
                         )
