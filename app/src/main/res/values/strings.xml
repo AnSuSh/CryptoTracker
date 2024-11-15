@@ -6,4 +6,7 @@
     <string name="error_server_error">Faced Error in server!</string>
     <string name="error_no_internet">Please enable internet!</string>
     <string name="error_too_many_requests">Quota is exceeded!</string>
+    <string name="market_cap">Market Cap</string>
+    <string name="price">Price</string>
+    <string name="change_in_last_24hr">Change in last 24 Hr</string>
 </resources>

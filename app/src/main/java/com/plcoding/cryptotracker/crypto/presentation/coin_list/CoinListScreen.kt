@@ -23,20 +23,24 @@ import com.plcoding.cryptotracker.ui.theme.CryptoTrackerTheme
 @Composable
 fun CoinListScreen(
     state: CoinListState,
+    onClickAction: (CoinListAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier.fillMaxSize()) {
-        if (state.isLoading) {
+
+    if (state.isLoading) {
+        Box(modifier = modifier.fillMaxSize()) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center)
             )
-        } else {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(state.coins) { item: CoinUI ->
-                    CoinListItem(item = item, onClick = {}, modifier = Modifier.fillMaxWidth())
-                }
+        }
+    } else {
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(state.coins) { item: CoinUI ->
+                CoinListItem(item = item, onClick = {
+                    onClickAction(CoinListAction.OnCoinClick(item))
+                }, modifier = Modifier.fillMaxWidth())
             }
         }
     }
@@ -47,7 +51,7 @@ fun CoinListScreen(
 @Composable
 private fun CoinListPreviewLoading() {
     CryptoTrackerTheme {
-        CoinListScreen(state = CoinListState(isLoading = true))
+        CoinListScreen(state = CoinListState(isLoading = true), onClickAction = {})
     }
 }
 
@@ -64,6 +68,7 @@ private fun CoinListPreviewReady() {
                     )
                 }
             ),
+            onClickAction = {},
             modifier = Modifier.background(MaterialTheme.colorScheme.background)
         )
     }
