@@ -48,7 +48,7 @@ fun AdaptiveCoinListDetailPane(
             AnimatedPane {
                 CoinListScreen(
                     state = state,
-                    onAction = { action ->
+                    onClickAction = { action ->
                         viewModel.onAction(action)
                         when(action) {
                             is CoinListAction.OnCoinClick -> {
